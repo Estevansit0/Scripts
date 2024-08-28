@@ -8,6 +8,9 @@ if Place == 15705682243 then
 elseif Place == 17824828446 then
     warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SCX.lua"))()
+elseif Place == 7903991471 then
+    warn(GameName)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/PT.lua"))()
 elseif Game == 4069560710 then
     warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/OFS.lua"))()
