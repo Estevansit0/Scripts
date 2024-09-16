@@ -14,6 +14,9 @@ elseif Place == 7903991471 then
 elseif Place == 15501353806 then
     warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SMS.lua"))()
+elseif Place == 8069117419 then
+    warn(GameName)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/DSS.lua"))()
 elseif Game == 4069560710 then
     warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/OFS.lua"))()
