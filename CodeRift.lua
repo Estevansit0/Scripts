@@ -1,26 +1,22 @@
 local Place = game.PlaceId
 local Game = game.GameId
-local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(Place).Name
 
-if Place == 15705682243 then
+local scripts = {
+    [15705682243] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/TLF.lua",
+    [17824828446] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SCX.lua",
+    [7903991471] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/PT.lua",
+    [15501353806] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SMS.lua",
+    [8069117419] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/DSS.lua",
+    [4161970303] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/AS.lua",
+    [4069560710] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/OFS.lua"
+}
+
+local scriptURL = scripts[Place] or scripts[Game]
+
+if scriptURL then
     warn(GameName)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/TLF.lua"))()
-elseif Place == 17824828446 then
-    warn(GameName)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SCX.lua"))()
-elseif Place == 7903991471 then
-    warn(GameName)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/PT.lua"))()
-elseif Place == 15501353806 then
-    warn(GameName)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SMS.lua"))()
-elseif Place == 8069117419 then
-    warn(GameName)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/DSS.lua"))()
-elseif Game == 4161970303 then
-    warn(GameName)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/AS.lua"))()
-elseif Game == 4069560710 then
-    warn(GameName)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/OFS.lua"))()
+    loadstring(game:HttpGet(scriptURL))()
+else
+    warn("No script found for this game.")
 end
