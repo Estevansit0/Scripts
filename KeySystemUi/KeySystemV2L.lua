@@ -1,6 +1,6 @@
 -- Key System ( Panda AUTH )
 -- VASL
--- Version: 1.5
+-- Version: 1.6
 -- Obfuscator: MoonSec v3
 -- Key Sys UI Creator: Estevan (@981421662341824552)
 -- Last Update: Fixed ui creation
