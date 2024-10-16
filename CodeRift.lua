@@ -4,6 +4,7 @@ local GameName = game:GetService("MarketplaceService"):GetProductInfo(Place).Nam
 
 local scripts = {
     [15705682243] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/TLF.lua",
+    [18463280776] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/OPFX.lua",
     [17824828446] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SCX.lua",
     [7903991471] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/PT.lua",
     [15501353806] = "https://raw.githubusercontent.com/CodeRiftH/Scripts/main/Games/SMS.lua",
