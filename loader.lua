@@ -20,6 +20,9 @@ elseif Game == 4069560710 then
 elseif Game == 6793832056 then
     warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua"))()
+elseif Place == 3956818381 then
+    warn(GameName)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua"))()
 else
     game.Players.LocalPlayer:Kick("Script not supported in this game.")
 end
