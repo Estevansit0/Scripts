@@ -1,6 +1,5 @@
 local Place = game.PlaceId
 local Game = game.GameId
-local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 if Game == 18463280776 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua"))()
