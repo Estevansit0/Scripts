@@ -3,23 +3,19 @@ local Game = game.GameId
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 if Game == 18463280776 then
-    warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua"))()
 elseif Game == 4161970303 then
-    warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/AS.lua"))()
 elseif Game == 3808223175 then
-    warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/JJIF.lua"))()
 elseif Game == 4069560710 then
-    warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OFS.lua"))()
 elseif Game == 6793832056 then
-    warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua"))()
 elseif Place == 3956818381 then
-    warn(GameName)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua"))()
+elseif Place == 6664476231 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FR.lua"))()
 else
     game.Players.LocalPlayer:Kick("Script not supported in this game.")
 end
