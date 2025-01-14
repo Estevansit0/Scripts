@@ -13,6 +13,8 @@ elseif Game == 6793832056 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua"))()
 elseif Game == 6664476231 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FR.lua"))()
+elseif Game == 1119466531 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/LOFS.lua"))()
 elseif Place == 3956818381 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua"))()
 else
