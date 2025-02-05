@@ -18,7 +18,13 @@ end
 getgenv().ScriptExecuted = true
 
 local Game = game.GameId
-local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local success, GameName = pcall(function()
+    return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+end)
+
+if not success then
+    GameName = "Failed to fetch game name"
+end
 
 local supportedGames = {
     [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
