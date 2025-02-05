@@ -1,13 +1,14 @@
-if not game:IsLoaded() then
-    game.Loaded:Wait()
-end
-
 local function showMessage(text, duration)
     local message = Instance.new("Message")
     message.Parent = game:GetService("CoreGui")
     message.Text = text
     task.wait(duration or 3)
     message:Destroy()
+end
+
+if not game:IsLoaded() then
+    showMessage("Waiting for the game to load.", 3)
+    game.Loaded:Wait()
 end
 
 if getgenv().ScriptExecuted then
