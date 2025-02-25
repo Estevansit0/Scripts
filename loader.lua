@@ -45,6 +45,24 @@ elseif Game == 6471449680 then
         showMessage("Failed to load alternative script. Please try again later.", 3)
         getgenv().ScriptExecuted = false
     end
+elseif Game == 4161970303 and Place == 15728325012 then
+    showMessage("Loading Dungeon script for " .. GameName .. "...", 3)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/ASDungeon.lua"))()
+    end)
+    if not success then
+        showMessage("Failed to load Dungeon script. Please try again later.", 3)
+        getgenv().ScriptExecuted = false
+    end
+elseif Game == 4161970303 then
+    showMessage("Loading AS script for " .. GameName .. "...", 3)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/AS.lua"))()
+    end)
+    if not success then
+        showMessage("Failed to load AS script. Please try again later.", 3)
+        getgenv().ScriptExecuted = false
+    end
 else
     local supportedGames = {
         [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
