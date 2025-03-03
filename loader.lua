@@ -19,76 +19,58 @@ getgenv().ScriptExecuted = true
 
 local Game = game.GameId
 local Place = game.PlaceId
-local success, GameName = pcall(function()
-    return game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-end)
 
-if not success then
-    GameName = "Failed to fetch game name"
+local function getGameName()
+    local success, name = pcall(function()
+        return game:GetService("MarketplaceService"):GetProductInfo(Place).Name
+    end)
+    return success and name or "Failed to fetch game name"
 end
 
-if Game == 6471449680 and Place == 86639052909924 then
-    showMessage("Loading script for " .. GameName .. "...", 3)
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/VP.lua"))()
-    end)
-    if not success then
-        showMessage("Failed to load VP script. Please try again later.", 3)
-        getgenv().ScriptExecuted = false
-    end
-elseif Game == 6471449680 then
-    showMessage("Loading alternative script for " .. GameName .. "...", 3)
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/VpDung.lua"))()
-    end)
-    if not success then
-        showMessage("Failed to load alternative script. Please try again later.", 3)
-        getgenv().ScriptExecuted = false
-    end
-elseif Game == 4161970303 and Place == 15728325012 then
-    showMessage("Loading Dungeon script for " .. GameName .. "...", 3)
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/ASDungeon.lua"))()
-    end)
-    if not success then
-        showMessage("Failed to load Dungeon script. Please try again later.", 3)
-        getgenv().ScriptExecuted = false
-    end
-elseif Game == 4161970303 then
-    showMessage("Loading AS script for " .. GameName .. "...", 3)
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/AS.lua"))()
-    end)
-    if not success then
-        showMessage("Failed to load AS script. Please try again later.", 3)
-        getgenv().ScriptExecuted = false
-    end
-else
-    local supportedGames = {
-        [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
-        [4161970303] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/AS.lua",
-        [3808223175] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/JJIF.lua",
-        [4069560710] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OFS.lua",
-        [6793832056] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua",
-        [6664476231] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FR.lua",
-        [1119466531] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/LOFS.lua",
-        [6982846329] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/PSS.lua",
-        [3956818381] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua"
-    }
-
-    local scriptUrl = supportedGames[Game] or supportedGames[Place]
-
-    if scriptUrl then
-        showMessage("Loading script for " .. GameName .. "...", 3)
-        local success, err = pcall(function()
-            loadstring(game:HttpGet(scriptUrl))()
-        end)
-        if not success then
-            showMessage("Failed to load script. Please try again later.", 3)
-            getgenv().ScriptExecuted = false
-        end
-    else
+local function executeScript(url, gameName)
+    if not url then
         showMessage("Script not supported for this game.", 3)
         game.Players.LocalPlayer:Kick("Script not supported in this game.")
+        return
+    end
+    
+    showMessage("Loading script for " .. gameName .. "...", 3)
+    local success, err = pcall(function()
+        loadstring(game:HttpGet(url))()
+    end)
+    
+    if not success then
+        showMessage("Failed to load script. Please try again later.\nError: " .. tostring(err), 3)
+        getgenv().ScriptExecuted = false
     end
 end
+
+local scripts = {
+    [6471449680] = {
+        [86639052909924] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/VP.lua",
+        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/VpDung.lua"
+    },
+    [4161970303] = {
+        [15728325012] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/ASDungeon.lua",
+        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/AS.lua"
+    },
+    [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
+    [3808223175] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/JJIF.lua",
+    [4069560710] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OFS.lua",
+    [6793832056] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua",
+    [6664476231] = {
+        [75959166903570] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
+        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FR.lua",
+    [1119466531] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/LOFS.lua",
+    [6982846329] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/PSS.lua",
+    [3956818381] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua"
+}
+
+-- Corrección en la búsqueda de URL
+local scriptUrl = scripts[Game] 
+if type(scriptUrl) == "table" then
+    scriptUrl = scriptUrl[Place] or scriptUrl.default
+end
+scriptUrl = scriptUrl or scripts[Place]
+
+executeScript(scriptUrl, getGameName())
