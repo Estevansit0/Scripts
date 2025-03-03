@@ -67,7 +67,6 @@ local scripts = {
     [3956818381] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua"
 }
 
--- Corrección en la búsqueda de URL
 local scriptUrl = scripts[Game] 
 if type(scriptUrl) == "table" then
     scriptUrl = scriptUrl[Place] or scriptUrl.default
