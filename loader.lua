@@ -56,7 +56,10 @@ local scripts = {
     },
     [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
     [3808223175] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/JJIF.lua",
-    [4069560710] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OFS.lua",
+    [4069560710] = {
+        [17333805250] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/OFSRaid.lua",
+        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OFS.lua"
+    },
     [6793832056] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua",
     [6664476231] = {
         [75959166903570] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
