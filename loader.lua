@@ -66,6 +66,7 @@ local scripts = {
         [75959166903570] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
         [80157158224004] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
         [126000682773050] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
+        [139511259501829] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrLobby.lua",
         default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FR.lua"
     },
     [1119466531] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/LOFS.lua",
