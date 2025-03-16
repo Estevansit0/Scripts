@@ -63,7 +63,11 @@ end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/KeySystemUi/luarmor.lua"))()
 local Window = Library:Window({
+    DisplayName = "QuantumPulsar X"
     script_id = _G.Scripts[game.gameId],
     File = "PulsarKey.txt",
     Discord = "discord.gg/PulsarX",
+    MinIcon = "rbxassetid://100569530935041",
+    Linkvertise = "https://ads.luarmor.net/get_key?for=QuantumPx__Linkvertise-OmESvhzKeFWH",
+    Lootlabs = "https://ads.luarmor.net/get_key?for=QuantumPx__Lootlabs-WSQLzfFYSxZh",
 })
