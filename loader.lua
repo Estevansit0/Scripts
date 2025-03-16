@@ -11,16 +11,6 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-local Game = game.GameId
-local Place = game.PlaceId
-
-local function getGameName()
-    local success, name = pcall(function()
-        return game:GetService("MarketplaceService"):GetProductInfo(Place).Name
-    end)
-    return success and name or "Failed to fetch game name"
-end
-
 _G.Scripts = {
     [6471449680] = "dc97e745159ff7cc618d2bbf720e02b2",
     [6664476231] = "76c26e15de37a6a72e7f43351d10a76a",
