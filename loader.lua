@@ -11,12 +11,6 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-if getgenv().ScriptExecuted then
-    showMessage("Script already executed.", 3)
-    return
-end
-getgenv().ScriptExecuted = true
-
 local Game = game.GameId
 local Place = game.PlaceId
 
@@ -27,57 +21,59 @@ local function getGameName()
     return success and name or "Failed to fetch game name"
 end
 
-local function executeScript(url, gameName)
-    if not url then
-        showMessage("Script not supported for this game.", 3)
-        game.Players.LocalPlayer:Kick("Script not supported in this game.")
-        return
-    end
-    
-    showMessage("Loading script for " .. gameName .. "...", 3)
-    local success, err = pcall(function()
-        loadstring(game:HttpGet(url))()
-    end)
-    
-    if not success then
-        showMessage("Failed to load script. Please try again later.\nError: " .. tostring(err), 3)
-        getgenv().ScriptExecuted = false
-    end
-end
-
-local scripts = {
-    [6471449680] = {
-        [86639052909924] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/VP.lua",
-        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/VpDung.lua"
-    },
-    [4161970303] = {
-        [15728325012] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/ASDungeon.lua",
-        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/AS.lua"
-    },
+_G.Scripts = {
+    [6471449680] = "dc97e745159ff7cc618d2bbf720e02b2",
+    [6664476231] = "76c26e15de37a6a72e7f43351d10a76a",
+    [4161970303] = "8eef70cee3e0024fc33be2214e5ae0b9",
+    [4069560710] = "0ff8c46eb6407e489866d8ab854438eb",
+    [6793832056] = "184b79224c9d4809d72b34a8c2d3c815",
+    [1119466531] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/LOFS.lua",  
+    [3956818381] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua",
     [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
-    [3808223175] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/JJIF.lua",
-    [7074860883] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/ACSS",
-    [4069560710] = {
-        [17333805250] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/OFSRaid.lua",
-        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OFS.lua"
-    },
-    [6793832056] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua",
-    [6664476231] = {
-        [75959166903570] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
-        [80157158224004] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
-        [126000682773050] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrDng.lua",
-        [139511259501829] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FrLobby.lua",
-        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FR.lua"
-    },
-    [1119466531] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/LOFS.lua",
     [6982846329] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/PSS.lua",
-    [3956818381] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua"
+    [7074860883] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/ACSS"
 }
 
-local scriptUrl = scripts[Game] 
-if type(scriptUrl) == "table" then
-    scriptUrl = scriptUrl[Place] or scriptUrl.default
+if not _G.Override then
+    _G.Override = {}
 end
-scriptUrl = scriptUrl or scripts[Place]
+for i,v in pairs(_G.Override) do
+    _G.Scripts[i] = v
+end
 
-executeScript(scriptUrl, getGameName())
+local HttpService = game:GetService('HttpService')
+local request = (syn and syn.request) or (fluxus and fluxus.request) or (http and http.request) or http_request or request
+
+if request then
+    pcall(function()
+        request({
+            Url = 'http://127.0.0.1:6463/rpc?v=1',
+            Method = 'POST',
+            Headers = {
+                ['Content-Type'] = 'application/json',
+                Origin = 'https://discord.com'
+            },
+            Body = HttpService:JSONEncode({
+                cmd = 'INVITE_BROWSER',
+                nonce = HttpService:GenerateGUID(false),
+                args = {code = "PulsarX"}
+            })
+        })
+    end)
+end
+
+local gameId = game.gameId
+if _G.Scripts[gameId] then
+    local scriptSource = _G.Scripts[gameId]
+    if type(scriptSource) == "string" and scriptSource:sub(1, 8) == "https://" then
+        loadstring(game:HttpGet(scriptSource))()
+        return
+    end
+end
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/KeySystemUi/luarmor.lua"))()
+local Window = Library:Window({
+    script_id = _G.Scripts[game.gameId],
+    File = "PulsarKey.txt",
+    Discord = "discord.gg/PulsarX",
+})
