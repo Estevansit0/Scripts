@@ -63,7 +63,7 @@ end
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/KeySystemUi/luarmor.lua"))()
 local Window = Library:Window({
-    DisplayName = "QuantumPulsar X"
+    DisplayName = "QuantumPulsar X",
     script_id = _G.Scripts[game.gameId],
     File = "PulsarKey.txt",
     Discord = "discord.gg/PulsarX",
