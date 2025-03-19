@@ -26,6 +26,9 @@ _G.Scripts = {
         [126000682773050] = "1407880ae6f399130b783d99080b2b4b",
         default = "76c26e15de37a6a72e7f43351d10a76a"
     },
+    [4161970303] = {
+        default = "8eef70cee3e0024fc33be2214e5ae0b9",
+    },
     [1119466531] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/LOFS.lua",
     [3956818381] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/NL.lua",
     [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
