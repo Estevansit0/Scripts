@@ -51,8 +51,8 @@ local scripts = {
         default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/VersePiece/Dungeon.lua"
     },
     [4161970303] = {
-        [15728325012] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/ASDungeon.lua",
-        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/AS.lua"
+        [15728325012] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/AnimeSpirits/Dungeon.lua",
+        default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/AnimeSpirits/Script.lua"
     },
     [6256925440] = "https://raw.githubusercontent.com/Estevansit0/Scripts/main/Games/OPFX.lua",
     [3808223175] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/JJIF.lua",
