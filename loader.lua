@@ -61,7 +61,11 @@ local scripts = {
         [17333805250] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/OneFruitSimulator/Raid.lua",
         default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/OneFruitSimulator/Script.lua"
     },
-    [6793832056] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/RockF.lua",
+    [6793832056] = {
+        [72064813230771] = "",
+        [95295765150201] = "",
+        default = ""
+    },
     [6664476231] = {
         [75959166903570] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/Dungeon.lua",
         [80157158224004] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/Dungeon.lua",
