@@ -69,6 +69,7 @@ local scripts = {
     [6664476231] = {
         [75959166903570] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/Dungeon.lua",
         [80157158224004] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/Dungeon.lua",
+        [88115991272896] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/Dungeon.lua",
         [126000682773050] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/Dungeon.lua",
         [139511259501829] = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/GameLobby.lua",
         default = "https://raw.githubusercontent.com/Estevansit0/Scripts/refs/heads/main/Games/FruitReborn/Script.lua"
